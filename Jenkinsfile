@@ -21,6 +21,11 @@ pipeline {
                 }
             }
         }
+        stage('Deploy_Artifact_To_Tomcat'){
+            steps { 
+                dir ("$Application") {
+                sh 'cp /target/$Application*.war /opt/apache-tomcat-9.0.100/webapps/'
+                }
+            }     
     }
 }
-
